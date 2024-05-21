@@ -1,0 +1,24 @@
+<div class="tool" [class.alt]="color > 0.5">
+    <div class="tool-icon-holder">
+        <img [src]="icon">
+    </div>
+    <a [href]="link" target="_blank" [class.alt]="color > 0.5" [class.linker]="link"><label class="name">{{name}}</label></a>
+    <div class="progress-bar-handler">
+        <div class="progress-bar">
+            <div class="content-progress-bar first" [style.width.%]="mastery > 0.25 ? 100 : 400*(mastery)" [class.alt]="color > 0.5">
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="content-progress-bar" [style.width.%]="mastery > 0.5 ? 100 : (mastery <= 0.25 ? 0 : 400*(mastery-0.25))" [class.alt]="color > 0.5">
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="content-progress-bar" [style.width.%]="mastery > 0.75 ? 100 : (mastery <= 0.5 ? 0 :  400*(mastery-0.5))" [class.alt]="color > 0.5">
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="content-progress-bar last" [style.width.%]="mastery <= 0.75 ? 0 :  400*(mastery-0.75)" [class.alt]="color > 0.5">
+            </div>
+        </div>
+    </div>
+</div>

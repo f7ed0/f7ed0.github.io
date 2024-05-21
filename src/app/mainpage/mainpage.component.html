@@ -1,0 +1,313 @@
+<header [style.background-color]="header_opacity">
+    <app-header></app-header>
+</header>
+<main style="overflow-y: scroll;" class="full" (scroll)="onScroll($event)">
+    <div class="fpholder full" style="position: relative;">
+        <div
+            class="full layer two" 
+            id="treeHolder" 
+            (mousemove)="drag3D($event)" 
+            (mousedown)="grabbed3D = true"
+            (mouseup)="grabbed3D = false;oldMousePos = undefined"
+            (mouseout)="grabbed3D = false;oldMousePos = undefined"
+        ></div>
+        <div class="layer one" [style.opacity]="fp_opacity">
+            <label class="name-label">Sylvain SAUSSE</label>
+            <br>
+            <label class="title-label">Future Computer Science and Cybersecurity Engineer </label>
+        </div>
+    </div>
+    <div id="whoami"></div>
+    <div class="content">
+        <h1><label>Who am I </label> <label class="color1">?</label></h1>
+        <p>
+            I am a french engineering student majoring in <label class="color2">Computer Science and Cybersecurity</label> at <label class="color2">INSA Hauts-de-France</label>.
+            I've been a big fan of <label class="color1">gaming</label> and <label class="color1">technologies</label> since my childhood, I started <label class="color1">programming</label> by myself in middle school and since then
+            I never stopped experimenting with computers.
+        </p>
+        <p>
+            My chosen fields are <label class="color2">system programming</label>, <label class="color2">system administration</label> and <label class="color2">software / game development</label>. I hope someday to be able to
+            work in the <label class="color1">video game industry</label>.
+        </p>
+    </div>
+    <div id="experiences" class="content">
+        <h1><label>My personal achievements</label><label class="color1">!</label></h1>
+        <app-xp-item>
+            <img src="assets/images/insash.png" image>
+            <h2 title><label class="color1">./insa.sh</label> - President & founder of INSA HdF's computer club</h2>
+            <ng-container text>
+                <p>
+                    In October 2022, I created the ./insa.sh computer club with two of my friend. Our goal was to create a place where
+                    anyone could come and share their passion of IT and tech. I truly believe that to learn
+                    computer science or IT you need to be surrounded by other people who work in this field.
+                </p>
+                <p>
+                    Running this club for two years taught me more than just IT skills, it also taught me how to deal with
+                    administration and how to handle projects as project manager during my term as president.
+                </p>
+            </ng-container>
+        </app-xp-item>
+        <app-xp-item>
+            <img src="assets/images/hos.png" image>
+            <h2 title><label class="color1">HebergOS</label><br>Website hosting manager</h2>
+            <ng-container text>
+                <p>
+                    HebergOS is a hosting software that I co-developed with a friend to host projects of
+                    members of the computer club or associations of the school using <label class="color2">docker</label> and a web interface made with 
+                    <label class="color2">Symphony</label>. It allows the end-user to have control of their dedicated space of the club's server without endangering 
+                    other projects or the host. You can check out the project on <a href="https://github.com/Miunn/hebergOS">github</a>.
+                </p>
+            </ng-container>
+        </app-xp-item>
+        <app-xp-item>
+            <img src="assets/images/codinsa.png" image>
+            <h2 title><label class="color1">Cod'INSA</label><br>Three times finalist</h2>
+            <ng-container text>
+                
+                <p>
+                    Cod'INSA is a <label class="color1">Computer Science competition</label> organized between all the <label class="color2">INSA engineering schools</label>
+                    where all students can enter. The <label class="color1">5 best performers of each school</label> during the qualifiers go to the last year's winners
+                    school to <label class="color2">compete in teams</label> for the final.
+                </p>
+                <p>
+                    The final consists of <label class="color2">developing a bot</label> in <label class="color1">20 hours</label> capable of
+                    winning against the bots of the other schools in a given <label class="color1">video game</label>.
+                </p>
+            </ng-container>
+        </app-xp-item>
+        <app-xp-item>
+            <img src="assets/images/LOGO_CyberINSA.png" image>
+            <h2 title>
+                <label class="color1">CTF INSA 2024</label>
+                <br>3rd place Qualification & 6th place Finale
+            </h2>
+            <ng-container text>
+                <p>
+                    <label class="color1">INSA's Capture The Flag</label> is a <label class="color2">competition between INSA schools</label> like cod'insa. 
+                    The qualifiers are a <label class="color1">CTF contest on 5 days</label>.
+                    The <label class="color2">2 best teams (4 people) of each school</label> are qualified for the final which
+                    is a <label class="color1">CTF contest that lasts 12 hours</label>.
+                </p>
+            </ng-container>
+        </app-xp-item>
+    </div>
+    <div id="education" class="content">
+        <h1><label>My education</label><label class="color1">;</label></h1>
+        <app-xp-item>
+            <img image src="assets/images/insa.png">
+            <h2 title>
+                <label class="color1">INSA Hauts-de-France - Valenciennes, France</label>
+                <br>
+                Computer Science and Cybersecurity MEng
+            </h2>
+            <ng-container text>
+                <p>September 2020 - June 2025</p>
+                <ul>
+                    <li>Data structures and algorithm</li>
+                    <li>IT knowledge</li>
+                    <li>Norms and laws compliancy</li>
+                    <li>web/mobile/native devloppement</li>
+                    <li>Cybersecurity Red and Blue teaming knowledge</li>
+                </ul>
+            </ng-container>
+        </app-xp-item>
+        <app-xp-item>
+            <img image src="assets/images/pmf.png">
+            <h2 title>
+                <label class="color1">Lycée Pierre Mendes France - Epinal, France</label>
+                <br>
+                Baccalaureate with highest distinction
+            </h2>
+            <ng-container text>
+                <p>September 2017 - June 2020</p>
+                <p>
+                    A-level / high school diploma equivalent (grade A)
+                </p>
+            </ng-container>
+        </app-xp-item>
+    </div>
+    <div id="work" class="content">
+        <h1><label>My profesional experience</label><label class="color1">.</label></h1>
+        <app-xp-item>
+            <img image src="assets/images/yb.png">
+            <h2 title>
+                <label class="color1">YesBabylon - Bruxelles, Belgium</label>
+                <br>
+                Full-stack developper intern
+            </h2>
+            <ng-container text>
+                <p>September 2023 - Frebruary 2024</p>
+                <ul>
+                    <li>Developped eQual Workbench, a low-code toolsuite to enhance productivity of teams.</li>
+                    <li>Improved eQual, the homemade opensource web developpement framework.</li>
+                </ul>
+            </ng-container>
+        </app-xp-item>
+    </div>
+    <div id="stack" class="content">
+        <h1><label>My stack</label><label class="color1">:</label></h1>
+        <div class="grid">
+            <app-tools
+                name="Kali Linux"
+                icon="assets/images/kali.png"
+                [mastery]="0.8"
+                link="https://www.kali.org/"
+            >
+            </app-tools>
+            <app-tools
+                name="Debian"
+                icon="https://upload.wikimedia.org/wikipedia/commons/6/66/Openlogo-debianV2.svg"
+                [mastery]="0.75"
+            >
+            </app-tools>
+            <app-tools
+                name="Windows"
+                icon="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg"
+                [mastery]="0.8"
+            >
+            </app-tools>
+            <app-tools
+                name="Golang"
+                desc="My favorite language, for system programming and web."
+                icon="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg"
+                [mastery]="0.9"
+                link="https://go.dev/"
+            >   
+            </app-tools>
+            <app-tools
+                name="C"
+                icon="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg"
+                [mastery]="0.8"
+            >
+            </app-tools>
+            <app-tools
+                name="C++"
+                icon="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/800px-ISO_C%2B%2B_Logo.svg.png"
+                [mastery]="0.7"
+            >
+            </app-tools>
+            <app-tools
+                name="Java"
+                icon="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/langfr-800px-Java_Logo.svg.png"
+                [mastery]="0.6"
+            >
+            </app-tools>
+            <app-tools
+                name="Python"
+                icon="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+                [mastery]="0.75"
+            >
+            </app-tools>
+            <app-tools
+                name="JavaScript"
+                icon="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                [mastery]="0.65"
+            >
+            </app-tools>
+            <app-tools
+                name="TypeScript"
+                icon="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png"
+                [mastery]="0.65"
+            >
+            </app-tools>
+            <app-tools
+                name="PHP"
+                icon="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1920px-PHP-logo.svg.png"
+                [mastery]="0.7"
+            >
+            </app-tools>
+            <app-tools
+                name="Docker"
+                icon="assets/images/docker.svg"
+                [mastery]="0.65"
+                link="https://www.docker.com/"
+            >
+            </app-tools>
+            <app-tools
+                name="Angular"
+                icon="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Angular_Logo_SVG.svg/1920px-Angular_Logo_SVG.svg.png"
+                [mastery]="0.8"
+                link="https://angular.dev/"
+            >
+            </app-tools>
+            <app-tools
+                name="Flutter"
+                icon="assets/images/flutter.png"
+                [mastery]="0.5"
+                link="https://flutter.dev/"
+            >
+            </app-tools>
+            <app-tools
+                name="ASMx86/ARM"
+                icon="assets/images/asm.png"
+                [mastery]="0.5"
+            >
+            </app-tools>
+            <app-tools
+                name="SDL2"
+                icon="assets/images/SDL.png"
+                [mastery]="0.70"
+                link="https://www.libsdl.org/"
+            >
+            </app-tools>
+            <app-tools
+                name="SQL language"
+                icon="assets/images/mysql.png"
+                [mastery]="0.85"
+            >
+            </app-tools>
+            <app-tools
+                name="MongoDB"
+                icon="assets/images/mongo.png"
+                [mastery]="0.60"
+                link="https://www.mongodb.com/fr-fr"
+            >
+            </app-tools>
+            <app-tools
+                name="DynamoDB"
+                icon="assets/images/dynamo.png"
+                [mastery]="0.60"
+                link="https://aws.amazon.com/fr/dynamodb/"
+            >
+            </app-tools>
+            <app-tools
+                name="Typst"
+                icon="assets/images/typst.png"
+                [mastery]="0.9"
+                link="https://typst.app/"
+            >
+            </app-tools>
+            <app-tools
+                name="Unreal Engine"
+                icon="assets/images/unreal.png"
+                [mastery]="0.45"
+                link="https://www.unrealengine.com/fr"
+            >
+            </app-tools>
+            <app-tools
+                name="Unity"
+                icon="assets/images/unity.png"
+                [mastery]="0.5"
+                link="https://unity.com/fr"
+            >
+            </app-tools>
+            <app-tools
+                name="Godot"
+                icon="assets/images/godot.svg"
+                [mastery]="0.65"
+                link="https://godotengine.org/"
+            >
+            </app-tools>
+            <app-tools
+                name="eQual"
+                icon="assets/images/equal.png"
+                [mastery]="0.95"
+                link="https://equal.run/"
+            >
+            </app-tools>
+        </div>
+    </div>
+</main>
+<footer>
+
+</footer>

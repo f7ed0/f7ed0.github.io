@@ -1,0 +1,91 @@
+.imgtext-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .flex {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .img-part {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ::ng-deep img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        
+    }
+
+    .text-part {
+        display: flex;
+        align-items: center;
+        ::ng-deep h2 {
+            font-size: 30px;
+        }
+        
+        width: calc(100% - 200px);
+    }
+}
+
+@media screen and (max-width : 1500px) {
+    .imgtext-holder {
+    
+        .img-part {
+            width: 100px;
+    
+            ::ng-deep img {
+                max-width: 75px;
+                max-height: 75px;
+            }
+            
+        }
+    
+        .text-part {
+            h2 {
+                font-size: 25px !important;
+            }
+            
+            width: calc(100% - 150px);
+        }
+    }
+}
+
+@media screen and (orientation : portrait) {
+    .imgtext-holder {
+        .img-part {
+            width: 100%;     
+            align-items: left;
+            justify-content: left;   
+        }
+
+        .flex {
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+            width: 100%;
+        }
+
+        .text-part {            
+            width: 100%;
+            
+        }
+        
+    }
+
+    @media (max-width : 6500px) {
+        .imgtext-holder .text-part ::ng-deep h2 {
+            font-size: 20px !important;
+        }
+    }
+} 
+
+.text {
+    min-width: 77%;
+}

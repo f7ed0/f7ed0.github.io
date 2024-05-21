@@ -1,0 +1,178 @@
+@import "src/styles.scss";
+
+:host {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tool {
+    transition: all 0.25s;
+    aspect-ratio: 1;
+    width: 80%;
+    background-color: $dark-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    padding: 10%;
+    margin: 5%;
+
+    a {
+        text-decoration: none;
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 0;
+        transition : all 0.25s;
+    }
+
+    .linker {
+        cursor: pointer;
+        label {
+            cursor: pointer;
+        }
+    }
+
+    .linker:hover {
+        color : $color1;
+        label {
+            text-decoration: underline solid;
+        }
+    }
+
+    .linker.alt:hover {
+        color : $color2;
+    }
+
+    .tool-icon-holder {
+        aspect-ratio: 1;
+        max-width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        transition: all 0.25s;
+    }
+    
+    .name {
+        opacity: 0;
+        font-size: 0px;
+        transition: all 0.25s;
+    }
+
+    .progress-bar-handler {
+        width: 100%;
+        height: 0;
+        display: flex;
+        background-color: #303030;
+        border-radius: 4px;
+        transition : all 0.25s;
+    }
+
+    .progress-bar {
+        opacity: 0;
+        height: 100%;
+        width: calc(25% - 1.5px);
+        margin: 0% 1px;
+        transition : all 0.25s;
+        background-color: $less-dark-gray;
+        border-radius: 3px;
+        padding: 0;
+        
+    }
+
+    .progress-bar.first {
+        margin-left: 0px;
+    }
+
+    .progress-bar.last {
+        margin-right: 0px;
+    }
+
+
+    .content-progress-bar {
+        opacity: 0;
+        height: 0;
+        background-color : $color1;
+        border-radius: 3px;
+    }
+
+    .content-progress-bar.alt {
+        background-color : $color2;
+    }
+    
+}
+
+.tool:hover {
+    position: relative;
+    transform: scale(1.7);
+    z-index: 1000;
+    aspect-ratio: 1;
+    box-shadow: 
+        .1px .1px 10px $color1-transp, -.1px -.1px 10px $color1-transp, -.1px .1px 10px $color1-transp, .1px -.1px 10px $color1-transp,
+        20px 20px 200px $black, -20px -20px 200px $black, -20px 20px 200px $black, 20px -20px 200px $black;
+    .tool-icon-holder {
+        height: calc(100% - 40px);
+    }
+
+    .name {
+        font-size : 12px;
+        margin: 0;
+        margin-top: 7px;
+        opacity: 1;
+    }
+
+    .progress-bar-handler {
+        height: 6px;
+        padding: 2px;
+        margin-top: 7px;
+    }
+    
+    a {
+        height: 22px;
+    }
+
+    .progress-bar {
+        opacity: 1;
+    }
+
+    .content-progress-bar {
+        opacity: 1;
+        height: 100%;
+    }
+}
+
+.tool.alt:hover {
+    box-shadow: 
+    .1px .1px 10px $color2-transp, -.1px -.1px 10px $color2-transp, -.1px .1px 10px $color2-transp, .1px -.1px 10px $color2-transp,
+    20px 20px 200px $black, -20px -20px 200px $black, -20px 20px 200px $black, 20px -20px 200px $black;
+}
+
+@media screen and (max-width : 1200px) {
+    .tool:hover {
+        transform: scale(1.8);
+        .name {
+            font-size : 10px;
+        }
+    }
+}
+
+@media screen and (max-width : 700px) {
+    .tool:hover {
+        transform: scale(2);
+        .name {
+            font-size : 9px;
+        }
+    }
+
+}
