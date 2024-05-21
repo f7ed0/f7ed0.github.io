@@ -2,7 +2,8 @@
     <div class="tool-icon-holder">
         <img [src]="icon">
     </div>
-    <a [href]="link" target="_blank" [class.alt]="color > 0.5" [class.linker]="link"><label class="name">{{name}}</label></a>
+    <a *ngIf="link" [href]="link" [class.alt]="color > 0.5" class="linker"><label class="name">{{name}}</label></a>
+    <label *ngIf="!link" class="name">{{name}}</label>
     <div class="progress-bar-handler">
         <div class="progress-bar">
             <div class="content-progress-bar first" [style.width.%]="mastery > 0.25 ? 100 : 400*(mastery)" [class.alt]="color > 0.5">
