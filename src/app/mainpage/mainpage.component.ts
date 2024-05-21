@@ -24,6 +24,9 @@ export class MainpageComponent implements OnInit, AfterViewInit {
   renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({antialias:true});
   scene: THREE.Scene = new THREE.Scene();
   camera!: THREE.PerspectiveCamera
+  clock:THREE.Clock = new THREE.Clock();
+  delta:number = 0;
+  interval:number = 1/60;
 
 
 
@@ -149,11 +152,9 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   public animate() {
     requestAnimationFrame(() => this.animate());
-    console.log(this.spacing3d)
-    if(this.hop < 255 ) {
-      //console.log(this.speed3D)
-      
-
+    this.delta += this.clock.getDelta();
+  
+    if (this.delta  > this.interval) {
       this.camera.aspect = this.box.width / this.box.height
 
       this.renderer.setSize(this.box.width, this.box.height)
@@ -176,9 +177,10 @@ export class MainpageComponent implements OnInit, AfterViewInit {
       this.renderer.render(this.scene, this.camera);
       if(Math.abs(this.speed3D - 0.3) > 0.01)
       this.speed3D = 0.99*this.speed3D + 0.003
-    } /*else {
-      setTimeout(this.animate,100)
-    }*/
+
+      this.delta = this.delta % this.interval;
+    }
+
   } 
 
   public fragmentShader = `
