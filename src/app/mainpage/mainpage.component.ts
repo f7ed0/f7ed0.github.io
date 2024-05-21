@@ -5,7 +5,9 @@ import * as THREE from 'three';
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
   styleUrls: ['./mainpage.component.scss'],
-  host: {'(body:click)':'tool_selected_id=-1'}
+  host: {
+    '(body:scroll)' : 'onScroll($event)'
+  }
 })
 export class MainpageComponent implements OnInit, AfterViewInit {
 
@@ -38,7 +40,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     //@ts-expect-error
     this.hop = Math.ceil(Math.max(0,Math.min( (($event.target.scrollTop - (window.innerHeight)*0.2)-(window.innerHeight)*0.55)/((window.innerHeight)*0.2), 1))*255)
     const alpha = (this.hop).toString(16).length > 1 ? (this.hop).toString(16) : "0"+(this.hop).toString(16)
-    console.log(alpha)
     if(this.dark_theme) {
       this.header_opacity = `#101010${alpha}`
     } else {
@@ -76,12 +77,11 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   private init3D() {
     this.three_container = document.querySelector("#treeHolder")
-    console.log(this.three_container)
-    console.log(this.box)
 
     this.camera = new THREE.PerspectiveCamera(75, this.box.width / this.box.height, 0.1, 1000);
 
     this.renderer.setSize(this.box.width, this.box.height);
+
     if(this.dark_theme) {
       this.renderer.setClearColor(0x101010)
     } else {
@@ -149,7 +149,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this.camera.position.z = 0;
     this.camera.position.y = 50;
     this.camera.lookAt(new THREE.Vector3(0, 0, 95))
-    console.log(this.cubes[0].mesh)
     this.animate()
   }
 
@@ -157,8 +156,10 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     requestAnimationFrame(() => this.animate());
     this.delta += this.clock.getDelta();
   
-    if (this.delta  > this.interval) {
+    if (this.delta  > this.interval && this.hop < 255) {
+      this.renderer.setSize(this.box.width, this.box.height);
       this.camera.aspect = this.box.width / this.box.height
+      this.camera.updateProjectionMatrix()
 
       this.renderer.setSize(this.box.width, this.box.height)
       if(Math.abs(this.speed3D) > 60) this.speed3D = 60
