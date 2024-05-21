@@ -49,7 +49,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   get box() {
     if (this.three_container)
-      return { height: this.three_container.clientHeight, width: this.three_container.clientWidth }
+      return { height: this.three_container.clientHeight ? this.three_container.clientHeight : window.innerHeight, width: this.three_container.clientWidth }
     return { height: 0, width: 0 }
   }
 
@@ -65,6 +65,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this.init3D()
   }
 
+  
 
 
   // -----------------------------------------------------------------------------------------------
@@ -75,6 +76,8 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   private init3D() {
     this.three_container = document.querySelector("#treeHolder")
+    console.log(this.three_container)
+    console.log(this.box)
 
     this.camera = new THREE.PerspectiveCamera(75, this.box.width / this.box.height, 0.1, 1000);
 

@@ -1,8 +1,8 @@
 <header [style.background-color]="header_opacity">
     <app-header></app-header>
 </header>
-<main style="overflow-y: scroll;" class="full" (scroll)="onScroll($event)">
-    <div class="fpholder full" style="position: relative;">
+<main (scroll)="onScroll($event)">
+    <div class="fpholder" style="position: relative;">
         <div
             class="full layer two" 
             id="treeHolder" 
@@ -309,5 +309,4 @@
     </div>
 </main>
 <footer>
-
 </footer>

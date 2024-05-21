@@ -104,6 +104,7 @@ body {
     color: $white;
     font-family: 'fira code', monospace;
     height: 100vh;
+    overflow-y: scroll;
     font-size: 20px;
 
     .content {
